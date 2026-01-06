@@ -14,6 +14,18 @@ services:
     build: ./worker
     networks:
       - app-network
+  
+  prometheus:
+    image: prom/prometheus:v3.5.0
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - prometheus_data:/prometheus
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+
+volumes:
+  prometheus_data:
 
 networks:
   app-network:
