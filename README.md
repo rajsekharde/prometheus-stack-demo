@@ -49,9 +49,7 @@ Tells what fraction of total CPU is not idle
 **Per-Container CPU usage:**
 
 ```bash
-sum by (name) (
-  rate(container_cpu_usage_seconds_total{name!=""}[1m])
-)
+sum by (name) (rate(container_cpu_usage_seconds_total{name!=""}[1m]))
 ```
 
 Tells how many cores each container is consuming
