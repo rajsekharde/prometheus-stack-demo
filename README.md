@@ -1,19 +1,22 @@
-# Demo project for testing monitoring stack
+# Prometheus monitoring stack demo
+A small project I built for learning how to use the Prometheus stack for monitoring AWS EC2 instances and docker containers
 
 ## Tools:
  - node-exporter: host system metrics
  - cadvisor: container metrics
  - prometheus: metrics collection & processing
 
-## Monitoring using Prometheus UI:
+## Monitoring using Prometheus Dashboard:
 
-Run the project:
+Clone the repository
+
+Run the app:
 
 ```bash
 docker compose up --build -d
 ```
 
-Visit the Prometheus UI page:
+Open the Prometheus dashboard:
 
 ```bash
 http://localhost:9090
@@ -27,7 +30,6 @@ Use Graph or Table to view query results
 
 ### Useful PromQL query commands:
 
-
 **Host total CPU usage:**
 
 ```bash
@@ -35,7 +37,6 @@ sum(rate(node_cpu_seconds_total{mode!="idle"}[1m]))
 ```
 
 Tells how many CPU cores are currently being burned
-
 
 **Host CPU saturation %:**
 
